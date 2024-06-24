@@ -1,0 +1,10 @@
+#! /usr/bin/python3
+import os
+import sys
+
+path=os.getcwd().split('/')[-1]
+zero=1
+for a in sys.argv[1:]:
+	c=f'mv "%s" "%s %s"'%(sys.argv[zero],path,sys.argv[zero])
+	os.system(c)
+	zero+=1

@@ -23,12 +23,32 @@ nautilus 插件所在路径为：
 ```python
 #! /usr/bin/python3
 import os
-import sys
 
 ls=os.listdir('.')
 zero=1
 for l in ls:
 	f=l.split('.')[-1]
 	os.system('mv "%s" "%s.%s"'%(l,zero,f))
+	zero+=1
+```
+
+### 1. 获取上一级路径重命名
+
+- 功能：获取上一级路径名，加到选中文件的前面。
+
+- 使用方法：右键当前文件夹任一文件或多选文件。
+
+- 源代码：
+
+```python
+#! /usr/bin/python3
+import os
+import sys
+
+path=os.getcwd().split('/')[-1]
+zero=1
+for a in sys.argv[1:]:
+	c=f'mv "%s" "%s %s"'%(sys.argv[zero],path,sys.argv[zero])
+	os.system(c)
 	zero+=1
 ```
